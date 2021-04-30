@@ -126,10 +126,10 @@ def get_historical_klines(symbol, interval, start_str, end_str=None):
     return output_data
 
 
-symbol = "ETHBTC"
+symbol = "ETHUSDT"
 start = "1 Jan, 2021"
 end = "1 April, 2021"
-interval = Client.KLINE_INTERVAL_30MINUTE
+interval = Client.KLINE_INTERVAL_5MINUTE
 
 klines = get_historical_klines(symbol, interval, start, end)
 
@@ -138,8 +138,8 @@ with open(
     "Binance_{}_{}_{}-{}.json".format(
         symbol,
         interval,
-        date_to_milliseconds(start),
-        date_to_milliseconds(end)
+        start,
+        end
     ),
     'w'  # set file write mode
 ) as f:
